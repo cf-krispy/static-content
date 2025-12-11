@@ -12,6 +12,16 @@ A simple static site for serving maintenance and error pages on Cloudflare Worke
 npx wrangler deploy
 ```
 
+## Workers Route Configuration
+
+After deployment, configure your Workers route in the Cloudflare dashboard:
+
+1. Go to **Workers & Pages** → `static-content`
+2. Navigate to **Settings** → **Triggers**
+3. Add or edit your route with the pattern: `*.yourdomain.com/*`
+
+**Important:** The `/*` at the end is required to serve all assets (HTML, images, CSS, etc.). Without it, only the root path will work and images/assets will return 404 errors.
+
 ## Files
 
 - `static/index.html` - Maintenance page
